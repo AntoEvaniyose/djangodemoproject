@@ -119,7 +119,7 @@ def payment_status(request,u):
     if(request.method=="POST"):
         response=request.POST
         print(response)
-        # print(u)
+        print(u)
 
         param_dict={
             'razorpay_order_id':response['razorpay_order_id'],
