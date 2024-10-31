@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="row ">
+    <div class="col-12">
+    <img src="{% static 'images/bann3.jpg' %}" height="700px" width="100%">
+</div>
+    </div>
+
+<div class="row mt-3 px-3" style="margin-bottom:100px">
+    <div class="col-12">
+        <h3 class="text-center fw-bold text-light mt-5 mb-5">Our Collections</h3>
+   <p style="text-align:justify;line-height:2.5;" class="fs-5">In the 1990s, retailers discovered a new way to conduct business—the internet. At its core, electronic commerce or e-commerce is simply the buying and selling of goods and services using the internet, when shopping online. However, the term is often used to describe all of a seller’s efforts when selling products directly to consumers online. It starts when a potential customer learns about a product and continues through purchase, use, and, ideally, ongoing customer loyalty.</p>
+</div>
+    </div>
+
+<div class="container mt-5 mb-5">
+    <div class="row">
+        {% for i in cat %}
+        <div class="col-sm-4 mb-5">
+
+        <div class="card mx-auto border border-3 border-light" style="width: 20rem;">
+  <img src="{{i.image.url}}" class="card-img-top" alt="..." height="200px" width="100%">
+  <div class="card-body text-center">
+    <h5 class="card-title mb-3">{{i.name}}</h5>
+<!--    <p class="card-text mb-3">{{i.desc}}</p>-->
+    <a href="{% url 'shop:products' i.id %}" class="btn btn-primary px-5 mb-2 fs-5">Products</a>
+  </div>
+</div>
+
+</div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

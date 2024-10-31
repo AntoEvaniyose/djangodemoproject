@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Include Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<div class="container-fluid vh-100 d-flex justify-content-center align-items-center" style="background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);">
+    <div class="col-lg-5 col-md-8">
+        <div class="card border-0 shadow p-5" style="border-radius: 15px;">
+            <h2 class="text-center mb-4" style="color: #6a1b9a;">Sign Up</h2>
+            <form method="POST">
+                {% csrf_token %}
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    <input type="text" class="form-control" id="username" name="u" placeholder="Username" required>
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                    <input type="password" class="form-control" id="password" name="p" placeholder="Password" required>
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                    <input type="password" class="form-control" id="confirmPassword" name="cp" placeholder="Confirm Password" required>
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    <input type="text" class="form-control" id="firstName" name="f" placeholder="First Name" required>
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    <input type="text" class="form-control" id="lastName" name="l" placeholder="Last Name" required>
+                </div>
+
+                <div class="input-group mb-4">
+                    <span class="input-group-text" ><i class="fas fa-envelope"></i></span>
+                    <input type="email" class="form-control" id="email" name="e" placeholder="Email" required>
+                </div>
+
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-lg text-white" style="background-color: #6a1b9a;">Create Account</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

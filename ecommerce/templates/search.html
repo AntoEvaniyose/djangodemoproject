@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<h2>Search Products</h2>
+<h3 class="text-center">You have searched for<span class="text-light">{{q}}</span></h3>
+
+<div class="container mt-5 mb-5">
+    {% if product == None %}        <!--if no query entered by the user-->
+    <h5 class="text-center">No Results Found</h5>
+    {% else %}
+    <div class="row">
+        {% for i in product %}
+        <div class="col-sm-4">
+
+        <div class="card mx-auto border border-3 border-light" style="width: 20rem;">
+  <img src="{{i.image.url}}" class="card-img-top" alt="..." height="200px" width="100%">
+  <div class="card-body text-center">
+    <h5 class="card-title mb-3">{{i.name}}</h5>
+    <h5 class="card-title mb-3">Price:{{i.price}}</h5>
+      <h5 class="card-title mb-3">Stock:{{i.stock}}</h5>
+      <h5 class="card-title mb-3" style="text-align:justify;">{{i.desc}}</h5>
+
+  </div>
+</div>
+
+</div>
+        {% empty %}     <!--if product sequence empty-->
+        <h5 class="text-center">No Results Found</h5>
+        {% endfor %}
+    </div>
+</div>
+
+{% endif %}
+{% endblock %}
